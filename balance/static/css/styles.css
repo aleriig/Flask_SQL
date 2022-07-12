@@ -1,0 +1,81 @@
+header {
+    background-color: #b8174c;
+    color: white;
+    height: 50px;
+    font-size: large;
+    line-height: 50px;
+    padding-left: 25px;
+}
+
+nav {
+    background-color: #19a187;
+    color: white;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 25px;
+
+}
+
+nav.main-menu a {
+    color: white;
+  }
+  
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+/* en este caso solo aplicamos el estilo a las tablas de clase paper  */
+table.paper{
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.titulo-tabla {
+    border-bottom: #19a187 1px solid;
+    text-align: left;
+}
+
+.numero{
+    text-align: right;
+}
+
+.pie-de-pagina {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: solid 1px #b8174c;
+}
+
+.lista-vacia {
+    text-align: center;
+    padding: 20px;
+    color: red;
+}
+
+table.paper .error {
+    font-size: small;
+    padding-left: 40px;
+    color: #990000;
+  }
+  
+.campo-formulario label {
+    display: block;
+    /* 1 rem equivale a 16px. rem significa elemento raiz */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0;
+    margin-top: .5rem;
+}
+
+.campo-formulario .radio-label {
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.campo-formulario input:not([type="radio"]) {
+    width: 75%;
+}
