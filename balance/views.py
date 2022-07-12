@@ -29,4 +29,4 @@ def actualizar(id):
 
 @app.route("/borrar/<int:id>", methods=["GET", "POST"])
 def eliminar(id):
-    return f"Eliminar el movimiento {id}"
+    return render_template("borrar.html", resultado=True)
