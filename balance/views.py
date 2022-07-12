@@ -1,8 +1,20 @@
+from flask import render_template
+
 from . import app
+from .models import DBManager
+
+
+RUTA = 'data/balance.db'
+
 
 @app.route("/")
 def inicio():
-    return "Página de inicio"
+    """
+    Muestra la lista de movimientos cargados.
+    """
+    db = DBManager(RUTA)
+    movimientos = db.consultaSQL("SELECT * FROM movimientos")
+    return render_template("inicio.html", movs=movimientos)
 
 
 @app.route("/nuevo", methods=["GET", "POST"])
