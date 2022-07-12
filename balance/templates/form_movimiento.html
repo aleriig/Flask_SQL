@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+<!-- cambiamos el nombre de la pestaña del navegador donde estamos -->
+{{ super() }}: Modificar movimiento
+{% endblock %}
+
+
+{% block page_title %}
+Modificar movimiento
+{% endblock %}
+
+{% block contenido %}
+{{ super() }}
+
+<form action="/modificar">
+    {{ form.csrf_token }}
+
+    <div class="campo-formulario">
+        {{ form.fecha.label }}
+        {{ form.fecha() }}
+    </div>
+</form>
+
+{%  endblock%}

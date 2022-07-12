@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import render_template, request
 
 from . import app
+from .forms import MovimientosForm
 from .models import DBManager
 
 
@@ -13,7 +14,7 @@ def inicio():
     Muestra la lista de movimientos cargados.
     """
     db = DBManager(RUTA)
-    movimientos = db.consultaSQL("SELECT * FROM movimientos")
+    movimientos = db.consulta_SQL("SELECT * FROM movimientos")
     return render_template("inicio.html", movs=movimientos)
 
 
@@ -24,6 +25,10 @@ def nuevo():
 
 @app.route("/modificar/<int:id>", methods=["GET", "POST"])
 def actualizar(id):
+    if request.method == "GET":
+        formulario = MovimientosForm()
+        return render_template("form_movimiento.html", form=formulario)
+
     return f"Actualizar el movimiento con ID={id}"
 
 
