@@ -43,3 +43,20 @@ class DBManager:
         conexion.close()
 
         return self.movimientos
+
+    def borrar(self, id):
+        consulta = "DELETE FROM movimientos WHERE id=?"
+        conexion = sqlite3.connect(self.ruta)
+        cursor = conexion.cursor()
+        resultado = False
+        # muy importante validar datos para evitar daños de una fuente externa
+        try:
+            cursor.execute(consulta, (id, ))
+            # hacemos un commit para guardar los datos, en este caso los borrar elementos
+            conexion.commit()
+            resultado = True
+        except:
+            # con el rollback podemos recuperar los datos
+            conexion.rollback()
+            conexion.close()
+        return resultado

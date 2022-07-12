@@ -39,8 +39,16 @@ table.paper{
     text-align: left;
 }
 
-.numero{
-    text-align: right;
+.numero,
+.acciones {
+  text-align: right;
+}
+
+.mini-boton {
+  border: solid 1px darkgray;
+  background-color: lightgray;
+  border-radius: 3px;
+  padding: 0 2px;
 }
 
 .pie-de-pagina {
