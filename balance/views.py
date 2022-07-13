@@ -35,7 +35,7 @@ def actualizar(id):
         movimiento["fecha"] = date.fromisoformat(movimiento["fecha"])
 
         formulario = MovimientosForm(data=movimiento)
-        return render_template("form_movimiento.html", form=formulario)
+        return render_template("form_movimiento.html", form=formulario, id=id)
 
     return f"Actualizar el movimiento con ID={id}"
 

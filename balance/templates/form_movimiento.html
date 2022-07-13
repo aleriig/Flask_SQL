@@ -13,7 +13,7 @@ Modificar movimiento
 {% block contenido %}
 {{ super() }}
 
-<form action="/modificar">
+<form action="/modificar/ {{ id }}">
     {{ form.csrf_token }}
     {{ form.id }}
 
