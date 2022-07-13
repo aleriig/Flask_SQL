@@ -52,7 +52,7 @@ def actualizar(id):
             resultado = db.consulta_con_parametros(consulta, params)
             if resultado:
                 return redirect(url_for("inicio"))
-            return "No se ha podido guardar en la base de datos"
+            render_template("form_movimiento.html", form=form, id=id, errores={"Ha fallado la operacion de guardar en la base de datos"})
         else:
             return render_template("form_movimiento.html", form=form, id=id, errores={"Ha fallado la validacion de los datos"})
 
