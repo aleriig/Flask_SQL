@@ -78,7 +78,8 @@ table.paper .error {
     margin-top: .5rem;
 }
 
-.campo-formulario .radio-label {
+.campo-formulario .radio-label,
+.campo-formulario>input[type="radio"]~label {
     display: inline-block;
     margin-right: 2rem;
     margin-bottom: 1rem;
