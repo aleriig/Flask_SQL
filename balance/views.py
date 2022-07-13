@@ -1,6 +1,6 @@
 from datetime import date
 
-from flask import render_template, redirect, request, url_for
+from flask import flash, render_template, redirect, request, url_for
 
 
 from . import app
@@ -51,6 +51,8 @@ def actualizar(id):
                 form.id.data)
             resultado = db.consulta_con_parametros(consulta, params)
             if resultado:
+                # el mensaje flash SIEMPRE debemos usarlo con un redirect
+                flash("Movimiento actualizado correctamente ;)", category="exito")
                 return redirect(url_for("inicio"))
             render_template("form_movimiento.html", form=form, id=id, errores={"Ha fallado la operacion de guardar en la base de datos"})
         else:
