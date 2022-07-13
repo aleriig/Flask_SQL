@@ -1,5 +1,5 @@
 import sqlite3
-from unittest import result
+import
 
 class DBManager:
     def __init__(self, ruta):
@@ -67,11 +67,14 @@ class DBManager:
         consulta = "SELECT * FROM movimientos WHERE id=?"
         conexion = sqlite3.connect(self.ruta)
         cursor = conexion.cursor()
-        cursor.execute()
+        # simepre poner una coma seguida del id para que lo detecte como una tupla
+        cursor.execute(consulta, (id,))
 
         datos = cursor.fetchone()
+        # preparo un resultado en caso de que no haya datos
         resultado = None
-
+        
+        # si hay datos, hacemos un bucle en cada 
         if datos:
             nombres_columnas = []
 
