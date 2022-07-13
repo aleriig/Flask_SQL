@@ -1,6 +1,6 @@
 from ast import Sub
 from flask_wtf import FlaskForm
-from wtforms import DateField, DecimalField, HiddenField, RadioField, StringField, SubmitField
+from wtforms import DateField, FloatField, HiddenField, RadioField, StringField, SubmitField
 
 class MovimientosForm(FlaskForm):
     # ocultamos el id
@@ -8,7 +8,7 @@ class MovimientosForm(FlaskForm):
     fecha = DateField("Fecha")
     concepto = StringField("Concepto")
     tipo = RadioField(choices=[("I", "Ingreso"), ("G", "Gasto")])
-    cantidad = DecimalField("Cantidad", places=2)
+    cantidad = FloatField("Cantidad")
 
     submit = SubmitField("Guardar", render_kw={ "class : blue-button" })
     

@@ -83,7 +83,8 @@ class DBManager:
             cursor.execute(consulta, params)
             conexion.commit()
             resultado = True
-        except:
+        except Exception as error:
+            print("ERROR DB:", error)
             conexion.rollback()
         conexion.close()
 
