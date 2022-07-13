@@ -53,9 +53,8 @@ def actualizar(id):
             if resultado:
                 return redirect(url_for("inicio"))
             return "No se ha podido guardar en la base de datos"
-        return "El formulario tiene errores"
-
-        
+        else:
+            return render_template("form_movimiento.html", form=form, id=id, errores={"Ha fallado la validacion de los datos"})
 
 
 @app.route("/borrar/<int:id>", methods=["GET", "POST"])

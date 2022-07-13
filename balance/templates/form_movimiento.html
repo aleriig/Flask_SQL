@@ -13,6 +13,19 @@ Modificar movimiento
 {% block contenido %}
 {{ super() }}
 
+{% if errores %}
+<div class="lista-errores">
+    <p>
+        <ion-icon name="warning-sharp" class="icono-error"></ion-icon>
+    </p>
+    <div class="mensajes-error">
+        {% for error in errores %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
 <form action="/modificar/ {{ id }}" method="POST">
     {{ form.csrf_token }}
     {{ form.id }}
